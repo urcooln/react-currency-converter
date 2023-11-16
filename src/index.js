@@ -14,7 +14,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-          <Router>
+          <Router basename="/react-currency-converter">
 
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
            <Link className="navbar-brand ps-3 fs-3" to="/"><i class="bi bi-currency-exchange"></i> Currency Converter App</Link>
