@@ -9,24 +9,28 @@ class BaseCurrencyDropDownMenu extends React.Component {
         };
     }
 
-    componentDidMount() {
+    fetchData(){
         fetch(`https://api.frankfurter.app/latest?from=USD`)
-            .then(checkStatus)
-            .then(json)
-            .then((data) => {
-                console.log('API Response:', data); // Log the API response for debugging
-                if (data && data.rates) {
-                    const keys = Object.keys(data.rates);
-                    keys.unshift('USD');
-                    keys.unshift('Select a Currency')
-                    this.setState({ currencyKeys: keys });
-                } else {
-                    console.error('Invalid API response:', data);
-                }
-            })
-            .catch((error) => {
-                console.error('Error fetching data from API:', error);
-            });
+        .then(checkStatus)
+        .then(json)
+        .then((data) => {
+            console.log('API Response:', data); // Log the API response for debugging
+            if (data && data.rates) {
+                const keys = Object.keys(data.rates);
+                keys.unshift('USD');
+                keys.unshift('Select a Currency')
+                this.setState({ currencyKeys: keys });
+            } else {
+                console.error('Invalid API response:', data);
+            }
+        })
+        .catch((error) => {
+            console.error('Error fetching data from API:', error);
+        });
+    }
+
+    componentDidMount() {
+        this.fetchData();
     }
 
     render() {

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import CurrencyRates from './currencyrates';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, HashRouter , Route, Link, Switch } from "react-router-dom";
 import CurrencyCalculator from './currencycalculator';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -17,7 +17,7 @@ root.render(
           <Router basename="/react-currency-converter">
 
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-           <Link className="navbar-brand ps-3 fs-3" to="/"><i class="bi bi-currency-exchange"></i> Currency Converter App</Link>
+           <Link className="navbar-brand ps-3 fs-3" to="/"><i className="bi bi-currency-exchange"></i> Currency Converter App</Link>
            <Link className="btn btn-outline-success me-2" to="/currency-calculator">Currency Calculator</Link>
           </nav>
           <br></br>

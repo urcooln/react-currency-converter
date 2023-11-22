@@ -17,8 +17,23 @@ class ExchangeRateTable extends React.Component {
           this.componentDidMount();
         }
       }
-    componentDidMount() {
-        const { amount, selectedCurrency, currency} = this.props;
+
+    componentDidMount(){
+        this.handleFetch();
+    }
+
+    handleFetch() {
+        const { amount, selectedCurrency} = this.props;
+
+        if(!amount || !selectedCurrency){
+            console.warn('Input values are empty. Skipping fetch request.');
+            return;
+        }
+        this.fetchData();
+    }
+
+    fetchData(){
+        const { amount, selectedCurrency} = this.props;
 
         fetch(`https://api.frankfurter.app/latest?amount=${amount}&from=${selectedCurrency}`)
             .then(checkStatus)
@@ -35,6 +50,7 @@ class ExchangeRateTable extends React.Component {
                 console.error('Error fetching data from API:', error);
             });
     }
+    
 
     render() {
         const { exchangeRates } = this.state;

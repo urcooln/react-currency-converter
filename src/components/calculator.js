@@ -24,8 +24,20 @@ class Calculator extends React.Component {
       selectedCurrency !== prevProps.selectedCurrency ||
       selectedCurrency2 !== prevProps.selectedCurrency2
     ) {
-      this.fetchData();
+      this.componentDidMount();
     }
+  }
+  componentDidMount(){
+    this.handleFetch();
+  }
+
+  handleFetch(){
+    const { amount, selectedCurrency, selectedCurrency2 } = this.props;
+    if(!amount || !selectedCurrency || !selectedCurrency2){
+        console.warn('Input values are empty. Skipping fetch request');
+        return;
+    }
+    this.fetchData();
   }
 
   fetchData() {
