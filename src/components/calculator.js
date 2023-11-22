@@ -1,5 +1,7 @@
 import React from 'react';
 import { checkStatus, json } from '../utils';
+import  CalculatorGraph from './calcChart'
+
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -85,6 +87,7 @@ class Calculator extends React.Component {
                     {currency}: {rate}
                   </li>
                 ))}
+                <li className='list-group-item'><CalculatorGraph selectedCurrency={selectedCurrency} selectedCurrency2={selectedCurrency2}/></li>
               </ul>
             </div>
           </div>
